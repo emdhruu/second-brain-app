@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 
-const mongodb_url = process.env.MONGODB_URI;
+const mongodb_url = process.env.MONGODB_URL;
+
+console.log(mongodb_url);
 
 if (!mongodb_url) {
   throw new Error("MONGODB-URI is not defined in environment variable file.");
