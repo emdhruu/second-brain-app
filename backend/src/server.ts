@@ -3,8 +3,8 @@ import dotenv from "dotenv";
 import passport from "passport";
 import session from "express-session";
 import cors from "cors";
-// import { connectDB } from "./utils/db";
-// import mainRouter from "./routes/mainRouter";
+import { connectDB } from "./utils/db";
+import mainRouter from "./routes/mainRouter";
 
 dotenv.config();
 
@@ -28,10 +28,10 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.use("/api", mainRouter);
+app.use("/api", mainRouter);
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`Server is running at PORT ${PORT}`);
+  connectDB();
 });
-//    connectDB();
